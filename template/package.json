@@ -1,0 +1,25 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run watch:all & npm run serve",
+    "watch:all": "concurrently \"npm run watch:html\" \"npm run watch:sass\" \"npm run watch:ts\"",
+    "watch:ts": "tsc -w",
+    "watch:sass": "sass --watch src/styles/main.scss:dist/style.css",
+    "watch:html": "copy-and-watch --watch src/**/*.html src/**/{fonts,images}/* dist/",
+    "serve": "browser-sync start --server 'dist' --files 'dist'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "concurrently": "^8.2.2",
+    "copy-and-watch": "^0.1.6",
+    "prettier": "^3.1.0",
+    "sass": "^1.69.5",
+    "typescript": "^5.3.2"
+  }
+}
